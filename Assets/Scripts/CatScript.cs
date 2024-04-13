@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CatScript : MonoBehaviour
@@ -22,19 +20,19 @@ public class CatScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Flag"))
+        switch (collision.gameObject.tag)
         {
-            GameManager.Instance.CatGoon();
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.CompareTag("Spike"))
-        {
-            if(aS != null && !aS.isPlaying){
-                aS.Play();
-                delay = (int)aS.clip.length;
+            case "Flag":
+                GameManager.Instance.CatGoon();
+                Destroy(gameObject);
+                break;
+            case "Spike":
+                if (aS != null && !aS.isPlaying){
+                    aS.Play();
+                    delay = (int)aS.clip.length;
+                }
                 Destroy(gameObject, delay);
-            }
-            
+                break;
         }
     }
 }
