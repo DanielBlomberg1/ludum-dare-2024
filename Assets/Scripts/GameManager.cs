@@ -25,6 +25,8 @@ public class GameManager : PersistentSingleton<GameManager>
     [SerializeField]
     private SceneAsset _gameUiScene;
 
+    private int catsGooned = 0;
+
     private void Start()
     {
         UpdateGameState(GameState.Play);
@@ -64,6 +66,8 @@ public class GameManager : PersistentSingleton<GameManager>
 
         LoadScene(levelToLoadSettings.LevelScene);
         LoadUI();
+
+        UpdateGameState(GameState.Play);
     }
 
     private void LoadScene(SceneAsset sceneAsset)
@@ -88,5 +92,12 @@ public class GameManager : PersistentSingleton<GameManager>
             EditorSceneManager.OpenScene(_gameUiScene.name, OpenSceneMode.Additive);
         }
         #endif
+    }
+
+    public void CatGoon(){
+        catsGooned++;
+        if(catsGooned >= Levels[_currentLevel].CatAmount){
+            UpdateGameState(GameState.LevelComplete);
+        }
     }
 }
