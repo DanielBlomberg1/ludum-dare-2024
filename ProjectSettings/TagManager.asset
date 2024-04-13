@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Drillable
+  - Spike
+  - Flag
   layers:
   - Default
   - TransparentFX
