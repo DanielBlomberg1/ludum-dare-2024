@@ -11,12 +11,8 @@ public class ItemSummoner : MonoBehaviour
     private GameObject _selectedSummon = null;
     private GameObject _previewObject = null;
 
-    private bool _selectedSummonChanged;
-
     private void Update()
     {
-        _selectedSummonChanged = false;
-
         HandleInput();
 
         if (_previewObject != null)
@@ -69,14 +65,14 @@ public class ItemSummoner : MonoBehaviour
         {
             CreatePreview(selectedSummon);
         }
-
-        _selectedSummonChanged = true;
     }
 
     private void CreatePreview(GameObject gameObject)
     {
         var previewObject = new GameObject();
-        previewObject.AddComponent<SpriteRenderer>().sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        var spriteComponent = previewObject.AddComponent<SpriteRenderer>();
+        spriteComponent.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        spriteComponent.color = new Color(Color.green.r, Color.green.g, Color.green.b, 0.4f);
 
         _previewObject = previewObject;
     }
