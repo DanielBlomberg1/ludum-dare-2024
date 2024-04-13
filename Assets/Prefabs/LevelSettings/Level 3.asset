@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level 3
   m_EditorClassIdentifier: 
   <LevelScene>k__BackingField: {fileID: 0}
-  <BridgeAmount>k__BackingField: 0
+  <BridgeAmount>k__BackingField: 1
   <DrillAmount>k__BackingField: 0
   <PickaxeAmount>k__BackingField: 0
-  <SpringAmount>k__BackingField: 0
+  <SpringAmount>k__BackingField: 2
   <CatAmount>k__BackingField: 0
