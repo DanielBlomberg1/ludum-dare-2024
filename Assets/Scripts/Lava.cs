@@ -19,14 +19,14 @@ public class Lava : MonoBehaviour
 
     private SpriteRenderer _lavaRenderer;
 
-    private Collider2D _lavaCollider;
+    private BoxCollider2D _lavaCollider;
 
     private float _obsidianification;
     private float _scrollState;
 
     private void Start()
     {
-        _lavaCollider = GetComponent<Collider2D>();
+        _lavaCollider = GetComponent<BoxCollider2D>();
         _lavaRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -42,6 +42,8 @@ public class Lava : MonoBehaviour
         _lavaCollider.isTrigger = false;
         
         _lavaState = LavaState.Obsidian;
+
+        _lavaCollider.size = Vector2.one;
         
         _particleSystem.Play();
         
