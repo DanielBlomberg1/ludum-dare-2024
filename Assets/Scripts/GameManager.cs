@@ -79,10 +79,10 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private void LoadUI()
     {
-        if (SceneManager.GetSceneByName(_gameUiScene.name).isLoaded)
-        {
-            return;
-        }
+        //if (SceneManager.GetSceneByName(_gameUiScene.name).isLoaded)
+        //{
+        //    return;
+        //}
 
         if (Application.isPlaying)
         {
