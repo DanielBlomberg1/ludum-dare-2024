@@ -1,16 +1,34 @@
 using System;
+using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
+    [field: SerializeField]
+    public SceneAsset GameUIScene { get; private set; }
+
+    [field: SerializeField]
+    public List<LevelSettings> Levels { get; private set; } = new List<LevelSettings>();
+
     public GameState CurrentState { get; private set; }
 
     public static event Action<GameState> OnGameStateChanged;
 
+    [SerializeField]
+    private int _currentLevel = 0;
+
+    [SerializeField]
+    private SceneAsset _gameUiScene;
+
     private void Start()
     {
         UpdateGameState(GameState.Play);
+        LoadLevel(_currentLevel);
     }
 
     public void UpdateGameState(GameState newState)
@@ -28,10 +46,10 @@ public class GameManager : PersistentSingleton<GameManager>
                 Time.timeScale = 0f;
                 break;
             case GameState.LevelComplete:
-                NextLevel();
+                LoadLevel(_currentLevel++);
                 break;
             case GameState.GameOver:
-                ReloadLevel();
+                LoadLevel(_currentLevel);
                 break;
             default:
                 break;
@@ -40,15 +58,35 @@ public class GameManager : PersistentSingleton<GameManager>
         OnGameStateChanged?.Invoke(newState);
     }
 
-    public void ReloadLevel()
+    private void LoadLevel(int levelIndex)
     {
-        int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentLevelBuildIndex);
+        var levelToLoadSettings = Levels[levelIndex];
+
+        LoadScene(levelToLoadSettings.LevelScene);
+        LoadUI();
     }
 
-    public void NextLevel()
+    private void LoadScene(SceneAsset sceneAsset)
     {
-        int nextLevelBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextLevelBuildIndex);
+        SceneManager.LoadScene(sceneAsset.name);
+    }
+
+    private void LoadUI()
+    {
+        if (SceneManager.GetSceneByName(_gameUiScene.name).isLoaded)
+        {
+            return;
+        }
+
+        if (Application.isPlaying)
+        {
+            SceneManager.LoadSceneAsync(_gameUiScene.name, LoadSceneMode.Additive);
+        }
+        #if UNITY_EDITOR
+        else
+        {
+            EditorSceneManager.OpenScene(_gameUiScene.name, OpenSceneMode.Additive);
+        }
+        #endif
     }
 }
