@@ -10,16 +10,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : PersistentSingleton<GameManager>
 {
     [field: SerializeField]
-    public SceneAsset GameUIScene { get; private set; }
-
-    [field: SerializeField]
     public List<LevelSettings> Levels { get; private set; } = new List<LevelSettings>();
+
+    public LevelSettings GetCurrentLevelSettings() => Levels[_currentLevel];
 
     public GameState CurrentState { get; private set; }
 
     public static event Action<GameState> OnGameStateChanged;
 
     [SerializeField]
+    [Min(0)]
     private int _currentLevel = 0;
 
     [SerializeField]
