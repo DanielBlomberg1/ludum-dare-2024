@@ -9,15 +9,13 @@ public class CatScript : MonoBehaviour
 
     private int delay;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();   
         aS = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void FixedUpdate()
     {
         rb.velocity = new Vector2(1, rb.velocity.y);
     }
@@ -34,15 +32,9 @@ public class CatScript : MonoBehaviour
             if(aS != null && !aS.isPlaying){
                 aS.Play();
                 delay = (int)aS.clip.length;
-                StartCoroutine(DestoryAfterDelay());
+                Destroy(gameObject, delay);
             }
             
         }
-    }
-
-    IEnumerator DestoryAfterDelay()
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
     }
 }
