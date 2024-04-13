@@ -64,10 +64,5 @@ public class InventoryManager : PersistentSingleton<InventoryManager>
         {
             Items.Add(SummonItem.Water, currentSettings.WaterAmount);
         }
-
-        foreach (var item in Items)
-        {
-            Debug.Log($"Item: {item.Key} - Amount: {item.Value}");
-        }
     }
 }
