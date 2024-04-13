@@ -22,4 +22,7 @@ public class LevelSettings : ScriptableObject
 
     [field: SerializeField]
     public int SpringAmount { get; private set; } = 0;
+
+    [field: SerializeField]
+    public int CatAmount { get; private set; } = 0;
 }

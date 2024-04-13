@@ -33,11 +33,6 @@ public class DrillScript : MonoBehaviour
         if(!other.gameObject.CompareTag("Drillable")) return;
         Debug.Log("Drill hit something drillable" + other.gameObject.name);
         
-        //only if the collision was from the bottom
-        if(other.contacts[0].normal != Vector2.up){
-            return;
-        }
-
         Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
         Vector3 hitPosition = Vector3.zero;
 
