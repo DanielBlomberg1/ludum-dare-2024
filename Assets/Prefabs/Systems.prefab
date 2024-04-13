@@ -106,6 +106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4602710074687821465}
     m_Modifications:
+    - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
+      propertyPath: _summonPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1724051406169282682, guid: 5412f904d6a437f4cb62b1e497beb4de, type: 3}
     - target: {fileID: 6041870951015027328, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: m_Name
       value: ItemSummoner

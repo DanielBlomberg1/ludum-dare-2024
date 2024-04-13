@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1841999518}
     m_Modifications:
+    - target: {fileID: 2474941156240314352, guid: f1649059d580cbd4b86d49d4adc57cb1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f4602c5229424e43b8355ff55200b29, type: 3}
     - target: {fileID: 3113171764569105161, guid: f1649059d580cbd4b86d49d4adc57cb1, type: 3}
       propertyPath: m_Name
       value: SummonHotbarItem (2)
