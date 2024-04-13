@@ -17,6 +17,7 @@ public class GameManager : PersistentSingleton<GameManager>
     public GameState CurrentState { get; private set; }
 
     public static event Action<GameState> OnGameStateChanged;
+    public static event Action OnLevelLoaded;
 
     [SerializeField]
     [Min(0)]
@@ -68,6 +69,7 @@ public class GameManager : PersistentSingleton<GameManager>
         LoadUI();
 
         UpdateGameState(GameState.Play);
+        OnLevelLoaded?.Invoke();
     }
 
     private void LoadScene(SceneAsset sceneAsset)
