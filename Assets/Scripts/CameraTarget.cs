@@ -1,19 +1,13 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CameraTarget : MonoBehaviour
 {
-    [Serializable] private class Bounds
-    {
-        public float left = -10f;
-        public float right = 10f;
-        public float up = 10f;
-        public float down = -10f;
-    }
-    
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] private Bounds _bounds;
+    
+    private CameraBounds _bounds;
 
     private bool _isDragging;
 
@@ -21,12 +15,20 @@ public class CameraTarget : MonoBehaviour
     
     private float boundsDamping = 5f;
 
-
-    public void OnDrag(InputAction.CallbackContext context)
+    private void Start()
     {
-        if (context.started) _origin = GetMousePosition;
-        
-        _isDragging = context.started || context.performed;
+        SceneManager.sceneLoaded += (arg0, mode) =>
+        {
+            if (CameraBounds.Instance)
+            {
+                _bounds = CameraBounds.Instance;
+            }
+
+            else
+            {
+                Debug.LogError("CameraBounds object missing from scene");
+            }
+        };
     }
 
     private void Update()
@@ -39,9 +41,18 @@ public class CameraTarget : MonoBehaviour
             transform.position = _origin - difference;
         }
     }
+    
+    public void OnDrag(InputAction.CallbackContext context)
+    {
+        if (context.started) _origin = GetMousePosition;
+        
+        _isDragging = context.started || context.performed;
+    }
 
     private void CheckBounds()
     {
+        if (!_bounds) return;
+        
         float cameraSize = _mainCamera.orthographicSize;
         
         float leftDiff = _bounds.left + cameraSize - transform.position.x;
@@ -56,14 +67,5 @@ public class CameraTarget : MonoBehaviour
     }
 
     private Vector3 GetMousePosition => _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        
-        Gizmos.DrawLine(new Vector3(_bounds.left, _bounds.down), new Vector3(_bounds.left, _bounds.up)); // LEFT LINE
-        Gizmos.DrawLine(new Vector3(_bounds.right, _bounds.down), new Vector3(_bounds.right, _bounds.up)); // RIGHT LINE
-        Gizmos.DrawLine(new Vector3(_bounds.left, _bounds.up), new Vector3(_bounds.right, _bounds.up)); // UP LINE
-        Gizmos.DrawLine(new Vector3(_bounds.left, _bounds.down), new Vector3(_bounds.right, _bounds.down)); // DOWN LINE
-    }
+    
 }
