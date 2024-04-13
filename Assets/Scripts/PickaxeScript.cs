@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class DrillScript : MonoBehaviour
+public class PickaxeScript : MonoBehaviour
 {
+
     [SerializeField] private int drillSpeed = 2;
     [SerializeField] private int drillamount = 2;
 
@@ -28,7 +30,7 @@ public class DrillScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log("Drill hit something" + other.gameObject.name);
         if(!other.gameObject.CompareTag("Drillable")) return;
         Debug.Log("Drill hit something drillable" + other.gameObject.name);
@@ -38,8 +40,9 @@ public class DrillScript : MonoBehaviour
 
         if (tilemap != null)
         {
-
-            foreach (ContactPoint2D hit in other.contacts)
+            ContactPoint2D[] contacts = new ContactPoint2D[10];
+            other.GetContacts(contacts);
+            foreach (ContactPoint2D hit in contacts)
             {
                 if(drillamount <= 0){
                     break;
@@ -57,7 +60,7 @@ public class DrillScript : MonoBehaviour
             }
             drillamount--;
         }
-        
+        Destroy(gameObject.GetComponent<Collider2D>());
     }
     private IEnumerator DestroyTile(Tilemap tilemap, Vector3 hitPosition){
         yield return new WaitForSeconds(drillSpeed);

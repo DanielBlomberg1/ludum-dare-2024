@@ -97,3 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b2067a096359242b1b80c92c89e82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDelay: 5
+  catPrefab: {fileID: 8397238868902202765, guid: cb98ddca2fef7194196cefbff3399da3, type: 3}
