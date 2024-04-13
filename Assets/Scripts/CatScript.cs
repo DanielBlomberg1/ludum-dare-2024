@@ -7,8 +7,6 @@ public class CatScript : MonoBehaviour
     private Rigidbody2D rb;
     private AudioSource aS;
 
-    private GameObject gm;
-    private GameManager gameManager;
     private int delay;
 
     // Start is called before the first frame update
@@ -16,8 +14,6 @@ public class CatScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();   
         aS = GetComponent<AudioSource>();
-        gm = GameObject.Find("GameManager");
-        gameManager = gm.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -30,7 +26,7 @@ public class CatScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Flag"))
         {
-            gameManager.CatGoon();
+            GameManager.Instance.CatGoon();
             Destroy(gameObject);
         }
         if(collision.gameObject.CompareTag("Spike"))

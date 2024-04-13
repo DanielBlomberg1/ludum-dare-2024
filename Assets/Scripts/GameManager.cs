@@ -48,7 +48,7 @@ public class GameManager : PersistentSingleton<GameManager>
                 Time.timeScale = 0f;
                 break;
             case GameState.LevelComplete:
-                LoadLevel(_currentLevel++);
+                LoadLevel(++_currentLevel);
                 break;
             case GameState.GameOver:
                 LoadLevel(_currentLevel);
