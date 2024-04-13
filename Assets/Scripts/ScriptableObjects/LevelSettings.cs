@@ -24,5 +24,12 @@ public class LevelSettings : ScriptableObject
     public int SpringAmount { get; private set; } = 0;
 
     [field: SerializeField]
+    public int WaterAmount { get; private set; } = 0;
+
+
+
+    [field: Header("Other")]
+
+    [field: SerializeField]
     public int CatAmount { get; private set; } = 0;
 }
