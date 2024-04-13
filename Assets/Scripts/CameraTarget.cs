@@ -12,7 +12,8 @@ public class CameraTarget : MonoBehaviour
         public float down = -10f;
     }
     
-    private Camera _mainCamera;
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private Bounds _bounds;
 
     private bool _isDragging;
 
@@ -20,12 +21,6 @@ public class CameraTarget : MonoBehaviour
     
     private float boundsDamping = 5f;
 
-    [SerializeField] private Bounds _bounds;
-
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-    }
 
     public void OnDrag(InputAction.CallbackContext context)
     {
