@@ -17,21 +17,26 @@ public class SummonHotbarItem : MonoBehaviour
 
     private SummonItemSettings _summonItemSettings;
 
+    private void Awake()
+    {
+        InventoryManager.OnInventoryChanged += UpdateAmount;   
+    }
+
+    private void OnDestroy()
+    {
+        InventoryManager.OnInventoryChanged -= UpdateAmount;
+    }
+
     public void SetupSettings(SummonItemSettings settings)
     {
         _summonItemSettings = settings;
         _image.sprite = settings.PreviewSprite;
         _hotkeyText.text = settings.KeybindText;
+        UpdateAmount();
+    }
 
-        int amountText;
-        
-        if (InventoryManager.Instance.Items.TryGetValue(settings.SummonItemLabel, out amountText))
-        {
-            _amountText.text = amountText.ToString();
-        }
-        else
-        {
-            _amountText.text = "0";
-        }
+    private void UpdateAmount()
+    {
+        _amountText.text = InventoryManager.Instance.GetItemAmount(_summonItemSettings.SummonItemLabel).ToString();
     }
 }
