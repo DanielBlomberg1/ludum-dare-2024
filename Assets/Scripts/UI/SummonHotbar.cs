@@ -1,18 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SummonHotbar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject _hotbarItemPrefab;
+
+    private List<GameObject> _hotbarItems = new List<GameObject>();
+
+    private void Start()
     {
-        
+        SetupHotbar();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetupHotbar()
     {
-        
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        var summonItemSettings = ItemSummoner.Instance.SummonItemSettings;
+
+        if (summonItemSettings == null)
+        {
+            Debug.LogWarning("Could not get summon item settings");
+            return;
+        }
+
+        foreach (var item in summonItemSettings)
+        {
+            var newHotbarItem = GameObject.Instantiate(_hotbarItemPrefab);
+            newHotbarItem.transform.parent = transform;
+            newHotbarItem.GetComponent<SummonHotbarItem>().SetupSettings(item);
+
+            _hotbarItems.Add(newHotbarItem);
+        }
     }
 }

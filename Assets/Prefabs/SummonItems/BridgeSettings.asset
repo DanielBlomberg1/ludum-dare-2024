@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bb5a0bf673fbbd40b14c8901cdf9eb4, type: 3}
-  m_Name: SpringSettings
+  m_Name: BridgeSettings
   m_EditorClassIdentifier: 
-  <SummonItemLabel>k__BackingField: 3
-  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: bb619af49b21c5d45a567b81a6765e2d, type: 3}
-  <ItemWorldPrefab>k__BackingField: {fileID: 7617486336295095851, guid: 18b9e0f7d380da84490376cb9212f18f, type: 3}
-  <KeyBind>k__BackingField: 50
-  <KeybindText>k__BackingField: 2
+  <SummonItemLabel>k__BackingField: 0
+  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: 883e7c038f1358c4c9d36255902ff714, type: 3}
+  <ItemWorldPrefab>k__BackingField: {fileID: 2834878462298775265, guid: 6038f3466e2ce684cadcec384fc9cd83, type: 3}
+  <KeyBind>k__BackingField: 49
+  <KeybindText>k__BackingField: 1
