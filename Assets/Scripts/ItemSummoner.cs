@@ -56,7 +56,6 @@ public class ItemSummoner : PersistentSingleton<ItemSummoner>
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Summon key");
             PlaceSelectedSummon();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
@@ -74,10 +73,10 @@ public class ItemSummoner : PersistentSingleton<ItemSummoner>
     {
         ClearPreview();
 
-        //if (InventoryManager.Instance.CanUseItem(item) == false)
-        //{
-        //    return;
-        //}
+        if (InventoryManager.Instance.CanUseItem(item) == false)
+        {
+            return;
+        }
 
         _selectedSummon = SummonItemSettings.FirstOrDefault(itemSettings => itemSettings.SummonItemLabel == item);
 
@@ -118,12 +117,13 @@ public class ItemSummoner : PersistentSingleton<ItemSummoner>
 
     private void PlaceSelectedSummon()
     {
-        if (_selectedSummon == null)
+        if (_selectedSummon == null || InventoryManager.Instance.CanUseItem(_selectedSummon.SummonItemLabel) == false)
         {
             return;
         }
 
         GameObject.Instantiate(_selectedSummon.ItemWorldPrefab, GetMouseWordPosition(), Quaternion.identity);
+        InventoryManager.Instance.RemoveItem(_selectedSummon.SummonItemLabel);
 
         UnselectToBeSummoned();
     }
