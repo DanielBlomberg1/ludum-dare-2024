@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PortalScript : MonoBehaviour
 {
-    [SerializeField] private float spawnDelay = 1.0f;
+    private float spawnDelay;
     [SerializeField] private GameObject catPrefab;
+    [SerializeField] private GameObject darkCatPrefab;
     
     private float spawnTimer = 0.0f;
     private int spawnedAmount = 0;
@@ -14,6 +15,7 @@ public class PortalScript : MonoBehaviour
     void Start()
     {
         maxSpawnAmount = GameManager.Instance.GetCurrentLevelSettings().CatAmount;
+        spawnDelay = GameManager.Instance.GetCurrentLevelSettings().spawnDelay;
     }
 
 
@@ -25,9 +27,10 @@ public class PortalScript : MonoBehaviour
         if (spawnTimer >= spawnDelay)
         {
             spawnTimer = 0.0f;
-            Instantiate(catPrefab, transform.position, Quaternion.identity);
-            spawnedAmount++;
+            if(GameManager.Instance.GetCurrentLevelSettings().isDark) Instantiate(darkCatPrefab, transform.position, Quaternion.identity);
+            else Instantiate(catPrefab, transform.position, Quaternion.identity);
             
+            spawnedAmount++;
         }
     }
 }

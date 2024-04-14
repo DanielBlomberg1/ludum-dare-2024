@@ -182,3 +182,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnDelay: 5
   catPrefab: {fileID: 8397238868902202765, guid: cb98ddca2fef7194196cefbff3399da3, type: 3}
+  darkCatPrefab: {fileID: 3176973176229582748, guid: ae9eb37a56abee74c914060b2916e790, type: 3}
