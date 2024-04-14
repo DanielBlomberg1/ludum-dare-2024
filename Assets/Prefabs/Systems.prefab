@@ -112,20 +112,28 @@ PrefabInstance:
       objectReference: {fileID: 1724051406169282682, guid: 5412f904d6a437f4cb62b1e497beb4de, type: 3}
     - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: <SummonItemSettings>k__BackingField.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: <SummonItemSettings>k__BackingField.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: bd370b55850764e408b35c04ba574ce6, type: 2}
+      objectReference: {fileID: 11400000, guid: 139570163a6a32d468e45f7950572aa7, type: 2}
     - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: <SummonItemSettings>k__BackingField.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 1a105d61e8bb06f4193492e92ceb640f, type: 2}
+      objectReference: {fileID: 11400000, guid: bd370b55850764e408b35c04ba574ce6, type: 2}
     - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: <SummonItemSettings>k__BackingField.Array.data[2]
       value: 
+      objectReference: {fileID: 11400000, guid: 1a105d61e8bb06f4193492e92ceb640f, type: 2}
+    - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
+      propertyPath: <SummonItemSettings>k__BackingField.Array.data[3]
+      value: 
       objectReference: {fileID: 11400000, guid: 2f2faf3b15f7c5d49ae65b3f55539c2a, type: 2}
+    - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
+      propertyPath: <SummonItemSettings>k__BackingField.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 79232efb8b3b86e43b07a1cd08f1dfa6, type: 2}
     - target: {fileID: 6041870951015027328, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: m_Name
       value: ItemSummoner

@@ -15,4 +15,5 @@ MonoBehaviour:
   <SummonItemLabel>k__BackingField: 2
   <PreviewSprite>k__BackingField: {fileID: 21300000, guid: 3f4602c5229424e43b8355ff55200b29, type: 3}
   <ItemWorldPrefab>k__BackingField: {fileID: 8861990501324420700, guid: 0611f207f3f909148a4bd76e0224857f, type: 3}
-  <KeyBind>k__BackingField: 51
+  <KeyBind>k__BackingField: 52
+  <KeybindText>k__BackingField: 4

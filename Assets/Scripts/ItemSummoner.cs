@@ -122,7 +122,7 @@ public class ItemSummoner : PersistentSingleton<ItemSummoner>
         {
             return;
         }
-        Debug.Log("Spawning");
+
         GameObject.Instantiate(_selectedSummon.ItemWorldPrefab, GetMouseWordPosition(), Quaternion.identity);
 
         UnselectToBeSummoned();
