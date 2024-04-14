@@ -25,6 +25,11 @@ public class ItemSummoner : MonoBehaviour
 
     private void HandleInput()
     {
+        if (GameManager.Instance.CurrentState != GameState.Play)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeSelectedSummon(_summonPrefabs[0]);
