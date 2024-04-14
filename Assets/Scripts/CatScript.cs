@@ -15,6 +15,7 @@ public class CatScript : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if(GameManager.Instance.CurrentState != GameState.Play) return;
         rb.velocity = new Vector2(1, rb.velocity.y);
     }
 
