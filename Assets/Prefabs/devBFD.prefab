@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1277787880509108969}
   - component: {fileID: 5688712530504777051}
   - component: {fileID: 5156692737474166424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: devBFD
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -30,10 +30,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Noise2Scale: 0.38
-    - _NoiseIntensity: 0.378
+    - _NoiseIntensity: 0.232
     - _NoiseScale: 0.05
     m_Colors:
-    - _Color: {r: 0.01132071, g: 0.01132071, b: 0.01132071, a: 1}
+    - _Color: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5619848437790784455
 MonoBehaviour:

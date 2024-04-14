@@ -1879,6 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c415e9b7ddf79194fbf7d4d9947e41f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hotbarItemPrefab: {fileID: 3113171764569105161, guid: f1649059d580cbd4b86d49d4adc57cb1, type: 3}
 --- !u!1001 &2098560748
 PrefabInstance:
   m_ObjectHideFlags: 0

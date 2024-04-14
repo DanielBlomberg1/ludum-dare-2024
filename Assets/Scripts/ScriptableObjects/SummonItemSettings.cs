@@ -14,4 +14,7 @@ public class SummonItemSettings : ScriptableObject
 
     [field: SerializeField]
     public KeyCode KeyBind { get; private set; }
+
+    [field: SerializeField]
+    public string KeybindText { get; private set; }
 }

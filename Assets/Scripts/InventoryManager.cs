@@ -9,6 +9,10 @@ public class InventoryManager : PersistentSingleton<InventoryManager>
 
     public bool CanUseItem(SummonItem item) => Items.ContainsKey(item) && Items[item] > 0;
 
+    public int GetItemAmount(SummonItem item) => Items.ContainsKey(item) ? Items[item] : 0;
+
+    public static event Action OnInventoryChanged;
+
     protected override void Awake()
     {
         GameManager.OnLevelLoaded += LoadInventory;
@@ -24,16 +28,19 @@ public class InventoryManager : PersistentSingleton<InventoryManager>
     public void AddItem(SummonItem item, int amount = 1)
     {
         Items[item] += amount;
+        OnInventoryChanged?.Invoke();
     }
     
     public void RemoveItem(SummonItem item, int amount = 1)
     {
         Items[item] -= amount;
+        OnInventoryChanged?.Invoke();
     }
 
     public void Clear()
     {
         Items = new Dictionary<SummonItem, int>();
+        OnInventoryChanged?.Invoke();
     }
 
     private void LoadInventory()
@@ -66,5 +73,7 @@ public class InventoryManager : PersistentSingleton<InventoryManager>
         {
             Items.Add(SummonItem.Water, currentSettings.WaterAmount);
         }
+        
+        OnInventoryChanged?.Invoke();
     }
 }
