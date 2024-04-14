@@ -72,6 +72,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _Noise2Scale: 1
+    - _NoiseIntensity: 0
     - _NoiseScale: 0.15
     m_Colors:
     - _Color: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
