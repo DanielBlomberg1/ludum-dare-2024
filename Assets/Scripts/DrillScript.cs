@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,13 @@ public class DrillScript : MonoBehaviour
     void Start()
     {
         aS = GetComponent<AudioSource>();
+
+        CameraShake.Instance.DrillCount++;
+    }
+
+    private void OnDestroy()
+    {
+        CameraShake.Instance.DrillCount--;
     }
 
     // Update is called once per frame
