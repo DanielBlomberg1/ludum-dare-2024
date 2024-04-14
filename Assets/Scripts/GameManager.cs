@@ -102,4 +102,9 @@ public class GameManager : PersistentSingleton<GameManager>
             UpdateGameState(GameState.LevelComplete);
         }
     }
+
+    public void RestartLevel(){
+        catsGooned = 0;
+        LoadLevel(_currentLevel);
+    }
 }
