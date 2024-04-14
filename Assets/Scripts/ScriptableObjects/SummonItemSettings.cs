@@ -4,7 +4,10 @@ using UnityEngine;
 public class SummonItemSettings : ScriptableObject
 {
     [field: SerializeField]
-    public SummonItem SummonItemType { get; private set; }
+    public SummonItem SummonItemLabel { get; private set; }
+
+    [field:  SerializeField]
+    public Sprite PreviewSprite { get; private set; }
 
     [field: SerializeField]
     public GameObject ItemWorldPrefab { get; private set; }

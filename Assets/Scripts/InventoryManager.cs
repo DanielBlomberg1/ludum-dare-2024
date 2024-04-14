@@ -7,6 +7,8 @@ public class InventoryManager : PersistentSingleton<InventoryManager>
 {
     public Dictionary<SummonItem, int> Items { get; private set; } = new Dictionary<SummonItem, int>();
 
+    public bool CanUseItem(SummonItem item) => Items.ContainsKey(item) && Items[item] > 0;
+
     protected override void Awake()
     {
         GameManager.OnLevelLoaded += LoadInventory;

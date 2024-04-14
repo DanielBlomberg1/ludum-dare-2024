@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
-public class ItemSummoner : MonoBehaviour
+public class ItemSummoner : PersistentSingleton<ItemSummoner>
 {
-    [SerializeField]
-    private List<GameObject> _summonPrefabs = new List<GameObject>();
+    [field: SerializeField]
+    public List<SummonItemSettings> SummonItemSettings { get; private set; } = new List<SummonItemSettings>();
 
-    private GameObject _selectedSummon = null;
+    private SummonItemSettings _selectedSummon = null;
     private GameObject _previewObject = null;
 
     private void Update()
@@ -30,53 +32,76 @@ public class ItemSummoner : MonoBehaviour
             return;
         }
 
+        SummonItem? itemLableWithKeybind = null;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ChangeSelectedSummon(_summonPrefabs[0]);
+            itemLableWithKeybind = GetItemLabelWithKey(KeyCode.Alpha1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ChangeSelectedSummon(_summonPrefabs[1]);
+            itemLableWithKeybind = GetItemLabelWithKey(KeyCode.Alpha2);
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            ChangeSelectedSummon(_summonPrefabs[2]);
+            itemLableWithKeybind = GetItemLabelWithKey(KeyCode.Alpha3);
         }
         else if (Input.GetKey(KeyCode.Alpha4))
         {
-            ChangeSelectedSummon(_summonPrefabs[3]);
+            itemLableWithKeybind = GetItemLabelWithKey(KeyCode.Alpha4);
         }
         else if (Input.GetKey(KeyCode.Alpha5))
         {
-            ChangeSelectedSummon(_summonPrefabs[4]);
+            itemLableWithKeybind = GetItemLabelWithKey(KeyCode.Alpha5);
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            PlaceSummon();
+            Debug.Log("Summon key");
+            PlaceSelectedSummon();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
         {
-            ChangeSelectedSummon(null);
+            UnselectToBeSummoned();
+        }
+
+        if (itemLableWithKeybind != null)
+        {
+            SelectToBeSummoned(itemLableWithKeybind.Value);
         }
     }
 
-    private void ChangeSelectedSummon(GameObject selectedSummon)
+    public void SelectToBeSummoned(SummonItem item)
     {
-        _selectedSummon = selectedSummon;
-
         ClearPreview();
 
-        if (_selectedSummon != null)
-        {
-            CreatePreview(selectedSummon);
-        }
+        //if (InventoryManager.Instance.CanUseItem(item) == false)
+        //{
+        //    return;
+        //}
+
+        _selectedSummon = SummonItemSettings.FirstOrDefault(itemSettings => itemSettings.SummonItemLabel == item);
+
+        CreatePreview(_selectedSummon);
     }
 
-    private void CreatePreview(GameObject gameObject)
+    public void UnselectToBeSummoned()
+    {
+        _selectedSummon = null;
+        ClearPreview();
+    }
+
+    private SummonItem GetItemLabelWithKey(KeyCode keyCode)
+    {
+        var itemLabel = SummonItemSettings.FirstOrDefault(itemSettings => itemSettings.KeyBind == keyCode).SummonItemLabel;
+
+        return itemLabel;
+    }
+
+    private void CreatePreview(SummonItemSettings itemSettings)
     {
         var previewObject = new GameObject();
         var spriteComponent = previewObject.AddComponent<SpriteRenderer>();
-        spriteComponent.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        spriteComponent.sprite = itemSettings.PreviewSprite;
         spriteComponent.color = new Color(Color.green.r, Color.green.g, Color.green.b, 0.4f);
 
         _previewObject = previewObject;
@@ -91,16 +116,16 @@ public class ItemSummoner : MonoBehaviour
         }
     }
 
-    private void PlaceSummon()
+    private void PlaceSelectedSummon()
     {
         if (_selectedSummon == null)
         {
             return;
         }
+        Debug.Log("Spawning");
+        GameObject.Instantiate(_selectedSummon.ItemWorldPrefab, GetMouseWordPosition(), Quaternion.identity);
 
-        GameObject.Instantiate(_selectedSummon, GetMouseWordPosition(), Quaternion.identity);
-
-        ChangeSelectedSummon(null);
+        UnselectToBeSummoned();
     }
 
     private Vector3 GetMouseWordPosition()

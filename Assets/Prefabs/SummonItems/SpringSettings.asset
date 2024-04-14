@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb5a0bf673fbbd40b14c8901cdf9eb4, type: 3}
+  m_Name: SpringSettings
+  m_EditorClassIdentifier: 
+  <SummonItemLabel>k__BackingField: 3
+  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: bb619af49b21c5d45a567b81a6765e2d, type: 3}
+  <ItemWorldPrefab>k__BackingField: {fileID: 7617486336295095851, guid: 18b9e0f7d380da84490376cb9212f18f, type: 3}
+  <KeyBind>k__BackingField: 49
