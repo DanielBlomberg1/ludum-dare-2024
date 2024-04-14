@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3803979459003115631}
   - component: {fileID: 7018748322756318985}
   - component: {fileID: 1650074782516350524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: devcat
   m_TagString: Cat
   m_Icon: {fileID: 0}
