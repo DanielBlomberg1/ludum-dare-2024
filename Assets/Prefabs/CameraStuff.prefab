@@ -138,11 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 18165619481239223}
-  _bounds:
-    left: -16.6
-    right: 28.7
-    up: 10.05
-    down: -12.82
 --- !u!1 &5667055755526263437
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +183,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.2484965, g: 0, b: 0.2905661, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
