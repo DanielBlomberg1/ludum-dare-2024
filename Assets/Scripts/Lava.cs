@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Lava : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Lava : MonoBehaviour
     private SpriteRenderer _lavaRenderer;
 
     private BoxCollider2D _lavaCollider;
+
+    private Light2D _light;
 
     private float _obsidianification;
     private float _scrollState;
@@ -46,6 +49,8 @@ public class Lava : MonoBehaviour
         _lavaCollider.size = Vector2.one;
         
         _particleSystem.Play();
+
+        _light.enabled = false;
         
         // PLAY SOUND
 

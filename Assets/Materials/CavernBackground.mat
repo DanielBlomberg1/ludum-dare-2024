@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cavern
+  m_Name: CavernBackground
   m_Shader: {fileID: -6465566751694194690, guid: a7d87ee4def2f5c409eaa1dabd2747e8, type: 3}
-  m_Parent: {fileID: 2100000, guid: 631beb8276a561445b143b47b2ee73d5, type: 2}
+  m_Parent: {fileID: 2100000, guid: e453173a76d64064ba8bf0eb9362ffb7, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,14 +22,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _TileTexture:
+        m_Texture: {fileID: 2800000, guid: 7d6c1b8387c81ea4487e14fcb1f41a19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseIntensity: 0
+    - _Noise2Scale: 0.38
+    - _NoiseIntensity: 0.378
+    - _NoiseScale: 0.05
     m_Colors:
-    - _Color: {r: 0.19999999, g: 0.19999999, b: 0.19999999, a: 1}
+    - _Color: {r: 0.01132071, g: 0.01132071, b: 0.01132071, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6589444747648802918
+--- !u!114 &5619848437790784455
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
