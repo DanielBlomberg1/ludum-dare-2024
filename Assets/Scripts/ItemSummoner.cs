@@ -54,7 +54,7 @@ public class ItemSummoner : MonoBehaviour
         {
             PlaceSummon();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1))
         {
             ChangeSelectedSummon(null);
         }
