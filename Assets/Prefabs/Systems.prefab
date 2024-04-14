@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aef288840efdf0b46ba445d086cd1789, type: 2}
   - {fileID: 11400000, guid: 4f004802e34c0eb4db9a2b61160b754c, type: 2}
   - {fileID: 11400000, guid: 4611850eb22e447489784b0cf8802e00, type: 2}
+  - {fileID: 11400000, guid: 8654e2d7f989ac44b961a7b86f01e2ae, type: 2}
   - {fileID: 11400000, guid: fb9dcb15af5b534448b5881ffe8edf06, type: 2}
   _currentLevel: 0
   _gameUiScene: {fileID: 102900000, guid: 47ae175985b59304eac973fdb302eb72, type: 3}
