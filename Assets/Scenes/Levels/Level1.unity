@@ -40936,19 +40936,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6454055537302900688, guid: d89f58d657207814ca50d3489e987fdc, type: 3}
       propertyPath: up
-      value: 4.45
+      value: 5.3
       objectReference: {fileID: 0}
     - target: {fileID: 6454055537302900688, guid: d89f58d657207814ca50d3489e987fdc, type: 3}
       propertyPath: down
-      value: -7.45
+      value: -8.53
       objectReference: {fileID: 0}
     - target: {fileID: 6454055537302900688, guid: d89f58d657207814ca50d3489e987fdc, type: 3}
       propertyPath: left
-      value: -10.46
+      value: -11.37
       objectReference: {fileID: 0}
     - target: {fileID: 6454055537302900688, guid: d89f58d657207814ca50d3489e987fdc, type: 3}
       propertyPath: right
-      value: 22.1
+      value: 23.4
       objectReference: {fileID: 0}
     - target: {fileID: 8544302332571825460, guid: d89f58d657207814ca50d3489e987fdc, type: 3}
       propertyPath: m_LocalPosition.x
