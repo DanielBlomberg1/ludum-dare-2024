@@ -31,6 +31,8 @@ public class Lava : MonoBehaviour
     {
         _lavaCollider = GetComponent<BoxCollider2D>();
         _lavaRenderer = GetComponent<SpriteRenderer>();
+
+        _light = GetComponentInChildren<Light2D>();
     }
 
     private void Update()
@@ -50,7 +52,7 @@ public class Lava : MonoBehaviour
         
         _particleSystem.Play();
 
-        _light.enabled = false;
+        Destroy(_light);
         
         // PLAY SOUND
 
@@ -79,6 +81,10 @@ public class Lava : MonoBehaviour
             {
                 Destroy(coll.gameObject);
             }
+        }
+        if(coll.CompareTag("Water"))
+        {
+            ChangeToObsidian();
         }
     }
 }

@@ -8,6 +8,9 @@ TagManager:
   - Spike
   - Flag
   - Cat
+  - Ta
+  - Lava
+  - Water
   layers:
   - Default
   - TransparentFX
