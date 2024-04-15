@@ -10,6 +10,9 @@ public class SummonHotbarItem : MonoBehaviour
     private Image _image;
 
     [SerializeField]
+    private Button _button;
+
+    [SerializeField]
     private TextMeshProUGUI _hotkeyText;
 
     [SerializeField]
@@ -19,12 +22,19 @@ public class SummonHotbarItem : MonoBehaviour
 
     private void Awake()
     {
-        InventoryManager.OnInventoryChanged += UpdateAmount;   
+        InventoryManager.OnInventoryChanged += UpdateAmount;
+        ItemSummoner.OnSummonSelectChange += HandleSummonSelectChange;
     }
 
     private void OnDestroy()
     {
         InventoryManager.OnInventoryChanged -= UpdateAmount;
+        ItemSummoner.OnSummonSelectChange -= HandleSummonSelectChange;
+    }
+
+    public void HandleClickFromUI()
+    {
+        ItemSummoner.Instance.SelectToBeSummoned(_summonItemSettings.SummonItemLabel);
     }
 
     public void SetupSettings(SummonItemSettings settings)
@@ -38,5 +48,13 @@ public class SummonHotbarItem : MonoBehaviour
     private void UpdateAmount()
     {
         _amountText.text = InventoryManager.Instance.GetItemAmount(_summonItemSettings.SummonItemLabel).ToString();
+    }
+
+    private void HandleSummonSelectChange(SummonItem? item)
+    {
+        if (item == _summonItemSettings.SummonItemLabel)
+        {
+            _button.Select();
+        }
     }
 }
