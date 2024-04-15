@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BridgeSettings
   m_EditorClassIdentifier: 
   <SummonItemLabel>k__BackingField: 0
-  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: 883e7c038f1358c4c9d36255902ff714, type: 3}
+  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: b32803d9389dc5546b797e5d0b5ccd55, type: 3}
   <ItemWorldPrefab>k__BackingField: {fileID: 2834878462298775265, guid: 6038f3466e2ce684cadcec384fc9cd83, type: 3}
   <KeyBind>k__BackingField: 49
   <KeybindText>k__BackingField: 1
