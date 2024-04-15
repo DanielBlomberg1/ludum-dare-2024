@@ -1,11 +1,13 @@
 using Eflatun.SceneReference;
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -20,7 +22,7 @@ public class GameManager : Singleton<GameManager>
 
     public static event Action<GameState> OnGameStateChanged;
     public static event Action OnLevelLoaded;
-
+    
     [SerializeField]
     [Min(0)]
     private int _currentLevel = 0;
@@ -28,13 +30,18 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private SceneReference _gameUiScene;
 
+    private StudioEventEmitter _music;
+
     private int catsGooned = 0;
     private int catsEdged = 0;
 
+    private float volume = 1;
+
     private void Start()
     {
-        UpdateGameState(GameState.Play);
-        LoadLevel(_currentLevel);
+        _music = GetComponent<StudioEventEmitter>();
+        
+        UpdateGameState(GameState.MainMenu);
     }
 
     public void UpdateGameState(GameState newState)
@@ -64,14 +71,23 @@ public class GameManager : Singleton<GameManager>
         OnGameStateChanged?.Invoke(newState);
     }
 
+    public void ChangeCurrentLevel(int levelIndex)
+    {
+        _currentLevel = levelIndex;
+        LoadLevel(_currentLevel);
+    }
+
     private void LoadLevel(int levelIndex)
     {
         catsGooned = 0;
+        catsEdged = 0;
         
         if(levelIndex >= Levels.Count)
         {
             SceneManager.LoadScene("EndCutScene");
         }
+        
+        _music.SetParameter("Scene", levelIndex + 1);
 
         var levelToLoadSettings = Levels[levelIndex];
 
@@ -85,6 +101,13 @@ public class GameManager : Singleton<GameManager>
     private void LoadScene(SceneReference sceneAsset)
     {
         SceneManager.LoadScene(sceneAsset.Name);
+    }
+
+    public void LoadMainMenu()
+    {
+        _music.SetParameter("Scene", 0);
+        
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void LoadUI()
@@ -139,5 +162,16 @@ public class GameManager : Singleton<GameManager>
     public void RestartLevel(){
         catsGooned = 0;
         LoadLevel(_currentLevel);
+    }
+
+    public void SetVolume(float value)
+    {
+        Debug.Log("Volume set to: " + value);
+        volume = value;
+    }
+
+    public float GetVolume()
+    {
+        return volume;
     }
 }

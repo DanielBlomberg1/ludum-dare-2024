@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drillSpeed: 2
-  drillamount: 2
+  drillamount: 20
 --- !u!114 &6937692394002900477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drillSpeed: 2
-  drillamount: 2
+  drillamount: 20
 --- !u!1001 &5866309569251658717
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -144,3 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _springForce: 500
+  _catSpringAudio:
+    Guid:
+      Data1: 1946615635
+      Data2: 1210363812
+      Data3: -904129631
+      Data4: 516857169
+    Path: event:/effects/cat-flying
