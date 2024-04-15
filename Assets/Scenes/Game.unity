@@ -135,6 +135,22 @@ PrefabInstance:
       propertyPath: _currentLevel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 320871798997353290, guid: cf287bd612adcb64896293ba3b92457a, type: 3}
+      propertyPath: _endCutscene.guid
+      value: 911227ee77ba1de469cba07c5323f3c6
+      objectReference: {fileID: 0}
+    - target: {fileID: 320871798997353290, guid: cf287bd612adcb64896293ba3b92457a, type: 3}
+      propertyPath: _endCutscene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 911227ee77ba1de469cba07c5323f3c6, type: 3}
+    - target: {fileID: 320871798997353290, guid: cf287bd612adcb64896293ba3b92457a, type: 3}
+      propertyPath: _mainMenuScene.guid
+      value: 8af4a473764672847a5acd3bf406e361
+      objectReference: {fileID: 0}
+    - target: {fileID: 320871798997353290, guid: cf287bd612adcb64896293ba3b92457a, type: 3}
+      propertyPath: _mainMenuScene.asset
+      value: 
+      objectReference: {fileID: 102900000, guid: 8af4a473764672847a5acd3bf406e361, type: 3}
     - target: {fileID: 4602710074687821465, guid: cf287bd612adcb64896293ba3b92457a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
