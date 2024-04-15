@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6345447541244253079}
   - component: {fileID: 320871798997353290}
+  - component: {fileID: 2284939687356166053}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -56,6 +57,39 @@ MonoBehaviour:
   _gameUiScene:
     asset: {fileID: 102900000, guid: 47ae175985b59304eac973fdb302eb72, type: 3}
     guid: 47ae175985b59304eac973fdb302eb72
+--- !u!114 &2284939687356166053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971006088282825652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1754841354
+      Data2: 1157038211
+      Data3: -194048838
+      Data4: 1268646604
+    Path: event:/musat/Musat
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params:
+  - Name: Scene
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6547261568910666849
 GameObject:
   m_ObjectHideFlags: 0

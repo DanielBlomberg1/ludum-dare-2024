@@ -1,6 +1,7 @@
 using Eflatun.SceneReference;
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -20,7 +21,7 @@ public class GameManager : Singleton<GameManager>
 
     public static event Action<GameState> OnGameStateChanged;
     public static event Action OnLevelLoaded;
-
+    
     [SerializeField]
     [Min(0)]
     private int _currentLevel = 0;
@@ -28,11 +29,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private SceneReference _gameUiScene;
 
+    private StudioEventEmitter _music;
+
     private int catsGooned = 0;
     private int catsEdged = 0;
 
     private void Start()
     {
+        _music = GetComponent<StudioEventEmitter>();
+        
         UpdateGameState(GameState.MainMenu);
     }
 
@@ -77,6 +82,8 @@ public class GameManager : Singleton<GameManager>
         {
             SceneManager.LoadScene("EndCutScene");
         }
+        
+        _music.SetParameter("Scene", levelIndex + 1);
 
         var levelToLoadSettings = Levels[levelIndex];
 
@@ -94,6 +101,8 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadMainMenu()
     {
+        _music.SetParameter("Scene", 0);
+        
         SceneManager.LoadScene("MainMenu");
     }
 
