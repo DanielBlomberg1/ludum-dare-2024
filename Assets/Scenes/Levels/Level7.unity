@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 243414298}
   - component: {fileID: 243414297}
   - component: {fileID: 243414296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainFloor
   m_TagString: Drillable
   m_Icon: {fileID: 0}
@@ -1637,7 +1637,7 @@ GameObject:
   - component: {fileID: 966735908}
   - component: {fileID: 966735907}
   - component: {fileID: 966735906}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainCeiling
   m_TagString: Drillable
   m_Icon: {fileID: 0}
@@ -2677,7 +2677,7 @@ GameObject:
   - component: {fileID: 1113126549}
   - component: {fileID: 1113126548}
   - component: {fileID: 1113126547}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainLeftWall
   m_TagString: Drillable
   m_Icon: {fileID: 0}
@@ -3178,7 +3178,7 @@ GameObject:
   - component: {fileID: 1316211949}
   - component: {fileID: 1316211948}
   - component: {fileID: 1316211947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainRightWall
   m_TagString: Drillable
   m_Icon: {fileID: 0}
@@ -3927,7 +3927,7 @@ GameObject:
   - component: {fileID: 1776004994}
   - component: {fileID: 1776004993}
   - component: {fileID: 1776004992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainBase
   m_TagString: Drillable
   m_Icon: {fileID: 0}
