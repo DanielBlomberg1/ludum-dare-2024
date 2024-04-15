@@ -19,9 +19,17 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            pauseMenu.SetActive(true);
-            GameManager.Instance.UpdateGameState(GameState.Pause);
-            volumeSlider.GetComponent<Slider>().value = GameManager.Instance.GetVolume();
+            if (pauseMenu.activeInHierarchy)
+            {
+                Close();
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+                GameManager.Instance.UpdateGameState(GameState.Pause);
+                
+                volumeSlider.GetComponent<Scrollbar>().value = GameManager.Instance.GetVolume();
+            }
 
         }else if(Input.GetKeyDown(KeyCode.R)){
             RestartLevel();
@@ -42,5 +50,11 @@ public class PauseMenuScript : MonoBehaviour
     public void OnVolumeSliderChanged(float value)
     {
         GameManager.Instance.SetVolume(value);
+    }
+
+    public void Close()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Play);
+        pauseMenu.SetActive(false);
     }
 }

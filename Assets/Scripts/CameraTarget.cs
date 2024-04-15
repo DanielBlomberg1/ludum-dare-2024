@@ -26,7 +26,7 @@ public class CameraTarget : MonoBehaviour
 
             else
             {
-                Debug.LogError("CameraBounds object missing from scene");
+                Debug.Log("CameraBounds object missing from scene");
             }
         };
     }

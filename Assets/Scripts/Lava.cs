@@ -83,7 +83,7 @@ public class Lava : MonoBehaviour
         {
             if (_lavaState == LavaState.Lava)
             {
-                Destroy(coll.gameObject);
+                coll.GetComponent<CatScript>().Murder();
             }
         }
         if(coll.CompareTag("Water"))

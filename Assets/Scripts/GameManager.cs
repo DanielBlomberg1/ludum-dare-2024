@@ -32,6 +32,8 @@ public class GameManager : Singleton<GameManager>
 
     private StudioEventEmitter _music;
 
+    private FMOD.Studio.Bus Master;
+
     private int catsGooned = 0;
     private int catsEdged = 0;
 
@@ -40,6 +42,8 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         _music = GetComponent<StudioEventEmitter>();
+        
+        Master = FMODUnity.RuntimeManager.GetBus("bus:/");
         
         UpdateGameState(GameState.MainMenu);
     }
@@ -166,6 +170,9 @@ public class GameManager : Singleton<GameManager>
     public void SetVolume(float value)
     {
         Debug.Log("Volume set to: " + value);
+
+        Master.setVolume(value);
+        
         volume = value;
     }
 
