@@ -25,7 +25,8 @@ public class PauseMenuScript : MonoBehaviour
 
     public void OnExitPressed(){
         pauseMenu.SetActive(false);
-        GameManager.Instance.UpdateGameState(GameState.Play);
+        GameManager.Instance.UpdateGameState(GameState.MainMenu);
+        GameManager.Instance.LoadMainMenu();
     }
 
     public void RestartLevel(){

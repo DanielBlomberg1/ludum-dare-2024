@@ -92,6 +92,11 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(sceneAsset.Name);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     private void LoadUI()
     {
         //if (SceneManager.GetSceneByName(_gameUiScene.name).isLoaded)
