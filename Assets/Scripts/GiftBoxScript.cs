@@ -10,7 +10,7 @@ public class GiftBoxScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cat"))
         {
-            InventoryManager.Instance.AddItem(giftItem);
+            InventoryManager.Instance.AddItem(giftItem, 1);
             Destroy(gameObject);
         }
     }
