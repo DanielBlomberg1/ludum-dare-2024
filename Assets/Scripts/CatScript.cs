@@ -43,9 +43,6 @@ public class CatScript : MonoBehaviour
                 Death();
                 break;
             case "Spike":
-                if (_audioSource != null && !_audioSource.IsPlaying()){
-                    _audioSource.Play();
-                }
                 Murder();
                 break;
         }
@@ -53,8 +50,9 @@ public class CatScript : MonoBehaviour
     private void Death(){
          Destroy(gameObject);
     }
-    private void Murder(){
+    public void Murder(){
         GameManager.Instance.CatEdged();
+        _audioSource.Play();
         Destroy(gameObject);
     }
 }

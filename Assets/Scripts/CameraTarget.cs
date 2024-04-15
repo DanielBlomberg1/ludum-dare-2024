@@ -26,7 +26,7 @@ public class CameraTarget : MonoBehaviour
 
             else
             {
-                Debug.LogError("CameraBounds object missing from scene");
+                Debug.Log("CameraBounds object missing from scene");
             }
         };
     }
@@ -46,7 +46,7 @@ public class CameraTarget : MonoBehaviour
     {
         if (context.started) _origin = GetMousePosition;
         
-        _isDragging = context.started || context.performed;
+        _isDragging = (context.started || context.performed) && GameManager.Instance.CurrentState == GameState.Play;
     }
 
     private void CheckBounds()
