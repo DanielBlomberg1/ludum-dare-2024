@@ -34,7 +34,7 @@ public class SummonHotbar : MonoBehaviour
         foreach (var item in summonItemSettings)
         {
             var newHotbarItem = GameObject.Instantiate(_hotbarItemPrefab);
-            newHotbarItem.transform.parent = transform;
+            newHotbarItem.transform.SetParent(transform, false);
             newHotbarItem.GetComponent<SummonHotbarItem>().SetupSettings(item);
 
             _hotbarItems.Add(newHotbarItem);
