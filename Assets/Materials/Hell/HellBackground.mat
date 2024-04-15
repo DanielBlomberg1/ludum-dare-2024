@@ -30,7 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Noise2Scale: 0.38
-    - _NoiseIntensity: 0.378
+    - _NoiseIntensity: 0.162
     - _NoiseScale: 0.05
     m_Colors:
     - _Color: {r: 0.4264151, g: 0.02900783, b: 0, a: 1}
