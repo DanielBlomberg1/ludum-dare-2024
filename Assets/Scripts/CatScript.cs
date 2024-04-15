@@ -40,15 +40,22 @@ public class CatScript : MonoBehaviour
         {
             case "Flag":
                 GameManager.Instance.CatGoon();
-                Destroy(gameObject);
+                Death();
                 break;
             case "Spike":
                 if (aS != null && !aS.isPlaying){
                     aS.Play();
                     delay = (int)aS.clip.length;
                 }
-                Destroy(gameObject, delay);
+                Murder();
                 break;
         }
+    }
+    private void Death(){
+         Destroy(gameObject);
+    }
+    private void Murder(){
+        GameManager.Instance.CatEdged();
+        Destroy(gameObject);
     }
 }

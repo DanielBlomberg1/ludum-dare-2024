@@ -28,6 +28,8 @@ public class LevelSettings : ScriptableObject
 
 
     [field: Header("Other")]
+    [field: SerializeField]
+    public int CatsRequiredToPass { get; private set; } = 0;
 
     [field: SerializeField]
     public int CatAmount { get; private set; } = 0;

@@ -20,6 +20,7 @@ MonoBehaviour:
   <PickaxeAmount>k__BackingField: 0
   <SpringAmount>k__BackingField: 1
   <WaterAmount>k__BackingField: 0
+  <CatsRequiredToPass>k__BackingField: 5
   <CatAmount>k__BackingField: 6
   <spawnDelay>k__BackingField: 5
   <CatSpeed>k__BackingField: 1

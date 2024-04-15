@@ -16,6 +16,7 @@ public class PortalScript : MonoBehaviour
     {
         maxSpawnAmount = GameManager.Instance.GetCurrentLevelSettings().CatAmount;
         spawnDelay = GameManager.Instance.GetCurrentLevelSettings().spawnDelay;
+        spawnTimer = spawnDelay;
     }
 
 

@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
     private SceneReference _gameUiScene;
 
     private int catsGooned = 0;
+    private int catsEdged = 0;
 
     private void Start()
     {
@@ -107,8 +108,31 @@ public class GameManager : Singleton<GameManager>
 
     public void CatGoon(){
         catsGooned++;
+        UiTextScript.Instance.UpdateCatsOutOfMaxx(catsGooned);
+
+        CheckForEnd();
+    }
+
+    public void CatEdged(){
+        catsEdged++;
+        UiTextScript.Instance.UpdateCatsEdged(catsEdged);
+
+        CheckForEnd();
+    }
+
+    private void CheckForEnd(){
         if(catsGooned >= Levels[_currentLevel].CatAmount){
             UpdateGameState(GameState.LevelComplete);
+        } else if(catsEdged >= Levels[_currentLevel].CatAmount){
+            UpdateGameState(GameState.GameOver);
+        } else if(catsEdged + catsGooned == Levels[_currentLevel].CatAmount && catsEdged < Levels[_currentLevel].CatsRequiredToPass){
+            UpdateGameState(GameState.GameOver);
+        } else if(catsEdged + catsGooned == Levels[_currentLevel].CatAmount && catsEdged >= Levels[_currentLevel].CatsRequiredToPass){
+            UpdateGameState(GameState.LevelComplete);
+        } else if(catsGooned >= Levels[_currentLevel].CatsRequiredToPass){
+            UiTextScript.Instance.CatIsEnough();
+        }else if( Levels[_currentLevel].CatsRequiredToPass > Levels[_currentLevel].CatAmount - catsEdged){
+            UiTextScript.Instance.CatLost();
         }
     }
 
