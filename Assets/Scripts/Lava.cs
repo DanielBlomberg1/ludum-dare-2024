@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -15,6 +16,8 @@ public class Lava : MonoBehaviour
     
     [SerializeField] private float _transformationTime = 0.5f;
     [SerializeField] private float _scrollSpeed;
+
+    private StudioEventEmitter _obsidianSound;
     
     private LavaState _lavaState;
 
@@ -31,6 +34,7 @@ public class Lava : MonoBehaviour
     {
         _lavaCollider = GetComponent<BoxCollider2D>();
         _lavaRenderer = GetComponent<SpriteRenderer>();
+        _obsidianSound = GetComponent<StudioEventEmitter>();
 
         _light = GetComponentInChildren<Light2D>();
     }
@@ -54,7 +58,7 @@ public class Lava : MonoBehaviour
 
         Destroy(_light);
         
-        // PLAY SOUND
+        _obsidianSound.Play();
 
         StartCoroutine(ObsidianTransformation());
     }
