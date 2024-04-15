@@ -17,3 +17,6 @@ MonoBehaviour:
   <ItemWorldPrefab>k__BackingField: {fileID: 7678353833119660877, guid: 89b48641f1941004d800d61ce9fa9832, type: 3}
   <KeyBind>k__BackingField: 53
   <KeybindText>k__BackingField: 5
+  <TooltipHeader>k__BackingField: Water bucket
+  <TooltipContent>k__BackingField: Turn lava into obsidian by placing a bucket of
+    water on top of the lava.
