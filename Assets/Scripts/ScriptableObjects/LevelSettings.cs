@@ -35,5 +35,8 @@ public class LevelSettings : ScriptableObject
     public float spawnDelay { get; private set; } = 5.0f;
 
     [field: SerializeField]
+    public float CatSpeed { get; private set; } = 1;
+
+    [field: SerializeField]
     public bool isDark { get; private set; } = false;
 }

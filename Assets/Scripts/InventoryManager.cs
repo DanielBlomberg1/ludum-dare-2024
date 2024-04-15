@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : PersistentSingleton<InventoryManager>
+public class InventoryManager : Singleton<InventoryManager>
 {
     public Dictionary<SummonItem, int> Items { get; private set; } = new Dictionary<SummonItem, int>();
 

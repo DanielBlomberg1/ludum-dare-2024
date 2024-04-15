@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-public class GameManager : PersistentSingleton<GameManager>
+public class GameManager : Singleton<GameManager>
 {
     [field: SerializeField]
     public List<LevelSettings> Levels { get; private set; } = new List<LevelSettings>();
@@ -65,6 +65,13 @@ public class GameManager : PersistentSingleton<GameManager>
 
     private void LoadLevel(int levelIndex)
     {
+        catsGooned = 0;
+        
+        if(levelIndex >= Levels.Count)
+        {
+            SceneManager.LoadScene("EndCutScene");
+        }
+
         var levelToLoadSettings = Levels[levelIndex];
 
         LoadScene(levelToLoadSettings.LevelScene);

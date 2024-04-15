@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ItemSummoner : PersistentSingleton<ItemSummoner>
+public class ItemSummoner : Singleton<ItemSummoner>
 {
     [field: SerializeField]
     public List<SummonItemSettings> SummonItemSettings { get; private set; } = new List<SummonItemSettings>();

@@ -22,4 +22,5 @@ MonoBehaviour:
   <WaterAmount>k__BackingField: 0
   <CatAmount>k__BackingField: 7
   <spawnDelay>k__BackingField: 5
+  <CatSpeed>k__BackingField: 1.5
   <isDark>k__BackingField: 1
