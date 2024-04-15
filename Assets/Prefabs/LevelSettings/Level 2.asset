@@ -15,8 +15,8 @@ MonoBehaviour:
   <LevelScene>k__BackingField:
     asset: {fileID: 102900000, guid: d63d82b992e70fa42b36bcd68241761b, type: 3}
     guid: d63d82b992e70fa42b36bcd68241761b
-  <BridgeAmount>k__BackingField: 5
-  <DrillAmount>k__BackingField: 3
+  <BridgeAmount>k__BackingField: 1
+  <DrillAmount>k__BackingField: 0
   <PickaxeAmount>k__BackingField: 0
   <SpringAmount>k__BackingField: 1
   <WaterAmount>k__BackingField: 0
