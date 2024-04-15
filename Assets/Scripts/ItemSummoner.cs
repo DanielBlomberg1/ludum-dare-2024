@@ -104,7 +104,7 @@ public class ItemSummoner : Singleton<ItemSummoner>
         var previewObject = new GameObject();
         var spriteComponent = previewObject.AddComponent<SpriteRenderer>();
         spriteComponent.sprite = itemSettings.PreviewSprite;
-        spriteComponent.color = new Color(Color.green.r, Color.green.g, Color.green.b, 0.4f);
+        spriteComponent.color = new Color(Color.green.r, Color.green.g, Color.green.b, 0.8f);
         var collider = previewObject.AddComponent<BoxCollider2D>();
         collider.isTrigger = true;
 
