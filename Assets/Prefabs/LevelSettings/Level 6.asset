@@ -18,5 +18,6 @@ MonoBehaviour:
   <PickaxeAmount>k__BackingField: 1
   <SpringAmount>k__BackingField: 1
   <WaterAmount>k__BackingField: 2
-  <CatAmount>k__BackingField: 15
+  <CatAmount>k__BackingField: 12
+  <spawnDelay>k__BackingField: 5
   <isDark>k__BackingField: 0

@@ -17,4 +17,7 @@ MonoBehaviour:
   <DrillAmount>k__BackingField: 3
   <PickaxeAmount>k__BackingField: 0
   <SpringAmount>k__BackingField: 1
-  <CatAmount>k__BackingField: 12
+  <WaterAmount>k__BackingField: 0
+  <CatAmount>k__BackingField: 6
+  <spawnDelay>k__BackingField: 5
+  <isDark>k__BackingField: 0
