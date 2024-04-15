@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -33,6 +34,8 @@ public class GameManager : Singleton<GameManager>
 
     private int catsGooned = 0;
     private int catsEdged = 0;
+
+    private float volume = 1;
 
     private void Start()
     {
@@ -158,5 +161,16 @@ public class GameManager : Singleton<GameManager>
     public void RestartLevel(){
         catsGooned = 0;
         LoadLevel(_currentLevel);
+    }
+
+    public void SetVolume(float value)
+    {
+        Debug.Log("Volume set to: " + value);
+        volume = value;
+    }
+
+    public float GetVolume()
+    {
+        return volume;
     }
 }

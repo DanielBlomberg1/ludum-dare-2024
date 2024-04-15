@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuScript : MonoBehaviour
 {
     
     [SerializeField] private GameObject pauseMenu;
+
+    [SerializeField] private GameObject volumeSlider;
 
     void Start()
     {
@@ -18,6 +21,8 @@ public class PauseMenuScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)){
             pauseMenu.SetActive(true);
             GameManager.Instance.UpdateGameState(GameState.Pause);
+            volumeSlider.GetComponent<Slider>().value = GameManager.Instance.GetVolume();
+
         }else if(Input.GetKeyDown(KeyCode.R)){
             RestartLevel();
         }
@@ -33,5 +38,9 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenu.SetActive(false);
         GameManager.Instance.UpdateGameState(GameState.Play);
         GameManager.Instance.RestartLevel();
+    }
+    public void OnVolumeSliderChanged(float value)
+    {
+        GameManager.Instance.SetVolume(value);
     }
 }
