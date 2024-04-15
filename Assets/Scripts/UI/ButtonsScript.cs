@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ButtonsScript : MonoBehaviour
 {
@@ -9,7 +6,7 @@ public class ButtonsScript : MonoBehaviour
 
     public void Play()
     {
-        SelectLevel(0);
+        SelectLevel(1);
     }
     public void LevelSelect()
     {
@@ -21,10 +18,14 @@ public class ButtonsScript : MonoBehaviour
     }
     public void SelectLevel(int level)
     {
-        GameManager.Instance.ChangeCurrentLevel(level);
+        GameManager.Instance.ChangeCurrentLevel(level - 1);
     }
     public void Exit()
     {
         Application.Quit();
+    }
+    public void ExitToMenu()
+    {
+        GameManager.Instance.LoadMainMenu();
     }
 }
