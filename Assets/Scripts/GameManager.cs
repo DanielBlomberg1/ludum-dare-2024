@@ -84,6 +84,7 @@ public class GameManager : Singleton<GameManager>
     private void LoadLevel(int levelIndex)
     {
         catsGooned = 0;
+        catsEdged = 0;
         
         if(levelIndex >= Levels.Count)
         {

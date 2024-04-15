@@ -17,4 +17,13 @@ public class SummonItemSettings : ScriptableObject
 
     [field: SerializeField]
     public string KeybindText { get; private set; }
+
+
+    [field: Header("Tooltip")]
+    [field: SerializeField]
+    public string TooltipHeader { get; private set; }
+
+    [field: SerializeField]
+    [field: TextArea]
+    public string TooltipContent { get; private set; }
 }

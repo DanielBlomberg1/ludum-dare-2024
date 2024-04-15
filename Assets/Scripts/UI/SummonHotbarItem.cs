@@ -16,6 +16,9 @@ public class SummonHotbarItem : MonoBehaviour
     private TextMeshProUGUI _hotkeyText;
 
     [SerializeField]
+    private TooltipTrigger _tooltipTrigger;
+
+    [SerializeField]
     private TextMeshProUGUI _amountText;
 
     private SummonItemSettings _summonItemSettings;
@@ -42,6 +45,7 @@ public class SummonHotbarItem : MonoBehaviour
         _summonItemSettings = settings;
         _image.sprite = settings.PreviewSprite;
         _hotkeyText.text = settings.KeybindText;
+        _tooltipTrigger.SetTooltipData(settings.TooltipHeader, settings.TooltipContent);
         UpdateAmount();
     }
 

@@ -17,3 +17,6 @@ MonoBehaviour:
   <ItemWorldPrefab>k__BackingField: {fileID: 2834878462298775265, guid: 6038f3466e2ce684cadcec384fc9cd83, type: 3}
   <KeyBind>k__BackingField: 49
   <KeybindText>k__BackingField: 1
+  <TooltipHeader>k__BackingField: Bridge
+  <TooltipContent>k__BackingField: Place a bridge over spike traps to get cats safely
+    to the other side.

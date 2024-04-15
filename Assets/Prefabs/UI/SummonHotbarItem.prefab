@@ -53,6 +53,7 @@ MonoBehaviour:
   _image: {fileID: 2474941156240314352}
   _button: {fileID: 5752202938842507409}
   _hotkeyText: {fileID: 7976957097529331118}
+  _tooltipTrigger: {fileID: 8645101651743430197}
   _amountText: {fileID: 3279476382475456311}
 --- !u!1 &3843164886620965654
 GameObject:
@@ -141,6 +142,7 @@ GameObject:
   - component: {fileID: 5983585797179981047}
   - component: {fileID: 2560555940876785332}
   - component: {fileID: 5752202938842507409}
+  - component: {fileID: 8645101651743430197}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -264,6 +266,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8645101651743430197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953868999692834022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bf987888870df4b97880c11e0ca1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5401732908587876765
 GameObject:
   m_ObjectHideFlags: 0

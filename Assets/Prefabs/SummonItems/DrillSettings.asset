@@ -17,3 +17,6 @@ MonoBehaviour:
   <ItemWorldPrefab>k__BackingField: {fileID: 1634985963248440388, guid: 89abd6af9629ad549abade9a5b7bed12, type: 3}
   <KeyBind>k__BackingField: 51
   <KeybindText>k__BackingField: 3
+  <TooltipHeader>k__BackingField: Drill
+  <TooltipContent>k__BackingField: Drill your way to lower levels by placing a drill
+    on the ground.

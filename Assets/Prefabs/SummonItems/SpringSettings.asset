@@ -17,3 +17,6 @@ MonoBehaviour:
   <ItemWorldPrefab>k__BackingField: {fileID: 7617486336295095851, guid: 18b9e0f7d380da84490376cb9212f18f, type: 3}
   <KeyBind>k__BackingField: 50
   <KeybindText>k__BackingField: 2
+  <TooltipHeader>k__BackingField: Spring
+  <TooltipContent>k__BackingField: Fly cats to high altitudes by placing a spring
+    on their path.
