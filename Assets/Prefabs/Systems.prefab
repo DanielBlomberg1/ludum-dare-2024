@@ -51,7 +51,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8654e2d7f989ac44b961a7b86f01e2ae, type: 2}
   - {fileID: 11400000, guid: fb9dcb15af5b534448b5881ffe8edf06, type: 2}
   _currentLevel: 0
-  _gameUiScene: {fileID: 102900000, guid: 47ae175985b59304eac973fdb302eb72, type: 3}
+  _gameUiScene:
+    asset: {fileID: 102900000, guid: 47ae175985b59304eac973fdb302eb72, type: 3}
+    guid: 47ae175985b59304eac973fdb302eb72
 --- !u!1 &6547261568910666849
 GameObject:
   m_ObjectHideFlags: 0

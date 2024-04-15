@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70b0215216d97c409a9320ea7204d79, type: 3}
   m_Name: Level 4
   m_EditorClassIdentifier: 
-  <LevelScene>k__BackingField: {fileID: 102900000, guid: 3c4460541d9560748a136601ea2e4d21, type: 3}
+  <LevelScene>k__BackingField:
+    asset: {fileID: 102900000, guid: 3c4460541d9560748a136601ea2e4d21, type: 3}
+    guid: 3c4460541d9560748a136601ea2e4d21
   <BridgeAmount>k__BackingField: 0
   <DrillAmount>k__BackingField: 3
   <PickaxeAmount>k__BackingField: 0
   <SpringAmount>k__BackingField: 1
   <WaterAmount>k__BackingField: 0
   <CatAmount>k__BackingField: 7
+  <spawnDelay>k__BackingField: 5
   <isDark>k__BackingField: 1

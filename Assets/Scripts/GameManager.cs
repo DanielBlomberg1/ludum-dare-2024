@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using System;
 using System.Collections.Generic;
 #if UNITY_EDITOR
@@ -6,6 +7,7 @@ using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : PersistentSingleton<GameManager>
 {
@@ -24,7 +26,7 @@ public class GameManager : PersistentSingleton<GameManager>
     private int _currentLevel = 0;
 
     [SerializeField]
-    private SceneAsset _gameUiScene;
+    private SceneReference _gameUiScene;
 
     private int catsGooned = 0;
 
@@ -72,9 +74,9 @@ public class GameManager : PersistentSingleton<GameManager>
         OnLevelLoaded?.Invoke();
     }
 
-    private void LoadScene(SceneAsset sceneAsset)
+    private void LoadScene(SceneReference sceneAsset)
     {
-        SceneManager.LoadScene(sceneAsset.name);
+        SceneManager.LoadScene(sceneAsset.Name);
     }
 
     private void LoadUI()
@@ -86,12 +88,12 @@ public class GameManager : PersistentSingleton<GameManager>
 
         if (Application.isPlaying)
         {
-            SceneManager.LoadSceneAsync(_gameUiScene.name, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(_gameUiScene.Name, LoadSceneMode.Additive);
         }
         #if UNITY_EDITOR
         else
         {
-            EditorSceneManager.OpenScene(_gameUiScene.name, OpenSceneMode.Additive);
+            EditorSceneManager.OpenScene(_gameUiScene.Name, OpenSceneMode.Additive);
         }
         #endif
     }

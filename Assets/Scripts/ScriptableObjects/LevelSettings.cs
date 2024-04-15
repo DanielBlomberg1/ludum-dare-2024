@@ -1,12 +1,11 @@
-using UnityEditor;
+using Eflatun.SceneReference;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "New Level Settings", menuName = "Scriptable Objects/Levels/New Level Settings")]
 public class LevelSettings : ScriptableObject
 {
     [field: SerializeField]
-    public SceneAsset LevelScene { get; private set; }
+    public SceneReference LevelScene { get; private set; }
 
 
     [field: Header("Level start props")]

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70b0215216d97c409a9320ea7204d79, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  <LevelScene>k__BackingField: {fileID: 102900000, guid: 0eac45447c691384ca4d00d9359dfbc8, type: 3}
+  <LevelScene>k__BackingField:
+    asset: {fileID: 102900000, guid: 0eac45447c691384ca4d00d9359dfbc8, type: 3}
+    guid: 0eac45447c691384ca4d00d9359dfbc8
   <BridgeAmount>k__BackingField: 1
   <DrillAmount>k__BackingField: 0
   <PickaxeAmount>k__BackingField: 0
