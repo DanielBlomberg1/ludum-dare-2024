@@ -1,23 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class DrillScript : MonoBehaviour
 {
-    [SerializeField] private int drillSpeed = 2;
-    [SerializeField] private int drillamount = 2;
-
-    private float idleTimer = 0.0f;
-    private readonly float maxidleTime = 5.0f;
-
-    private AudioSource aS;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        aS = GetComponent<AudioSource>();
+        Destroy(gameObject, 5f); 
 
         CameraShake.Instance.DrillCount++;
     }
@@ -26,49 +16,29 @@ public class DrillScript : MonoBehaviour
     {
         CameraShake.Instance.DrillCount--;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnCollisionEnter2D(Collision2D other) 
     {
-        // if drill is idle for 2 seconds, destroy it
-        idleTimer += Time.deltaTime;
-        if(idleTimer >= maxidleTime){
-            Destroy(gameObject);
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("Drill hit something" + other.gameObject.name);
         if(!other.gameObject.CompareTag("Drillable")) return;
-        Debug.Log("Drill hit something drillable" + other.gameObject.name);
         
         Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
-        Vector3 hitPosition = Vector3.zero;
 
         if (tilemap != null)
         {
-
-            foreach (ContactPoint2D hit in other.contacts)
-            {
-                if(drillamount <= 0){
-                    break;
-                }
-                
-                if(aS != null && !aS.isPlaying){
-                    aS.Play();
-                }
-
-                idleTimer = 0;
-
-                hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
-                hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
-                StartCoroutine(DestroyTile(tilemap, hitPosition));
-            }
-            drillamount--;
+            StartCoroutine(Drill(tilemap));
         }
-        
     }
-    private IEnumerator DestroyTile(Tilemap tilemap, Vector3 hitPosition){
-        yield return new WaitForSeconds(drillSpeed);
-        tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+    
+    private IEnumerator Drill(Tilemap tilemap)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1f);
+            
+            for (int x = -1; x <= 1; x++) 
+            {
+                tilemap.SetTile(tilemap.WorldToCell(transform.position + new Vector3(x, -1.5f, 0)), null);
+            }
+        }
     }
 }
