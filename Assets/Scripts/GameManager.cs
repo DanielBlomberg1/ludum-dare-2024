@@ -33,8 +33,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        UpdateGameState(GameState.Play);
-        LoadLevel(_currentLevel);
+        UpdateGameState(GameState.MainMenu);
     }
 
     public void UpdateGameState(GameState newState)
@@ -62,6 +61,12 @@ public class GameManager : Singleton<GameManager>
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    public void ChangeCurrentLevel(int levelIndex)
+    {
+        _currentLevel = levelIndex;
+        LoadLevel(_currentLevel);
     }
 
     private void LoadLevel(int levelIndex)
