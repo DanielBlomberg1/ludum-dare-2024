@@ -27,6 +27,10 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void AddItem(SummonItem item, int amount = 1)
     {
+        if(!Items.ContainsKey(item))
+        {
+            Items.Add(item, 0);
+        }
         Items[item] += amount;
         OnInventoryChanged?.Invoke();
     }

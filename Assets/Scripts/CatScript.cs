@@ -1,11 +1,10 @@
 using UnityEngine;
+using FMODUnity;
 
 public class CatScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private AudioSource aS;
-
-    private int delay;
+    private StudioEventEmitter _audioSource;
 
     private float catSpeed = 1;
 
@@ -13,8 +12,9 @@ public class CatScript : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
-        aS = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<StudioEventEmitter>();
+        
         if(GameManager.Instance) catSpeed = GameManager.Instance.GetCurrentLevelSettings().CatSpeed;
 
         prevPos = new Vector3(0, 0, 22222);
@@ -40,15 +40,21 @@ public class CatScript : MonoBehaviour
         {
             case "Flag":
                 GameManager.Instance.CatGoon();
-                Destroy(gameObject);
+                Death();
                 break;
             case "Spike":
-                if (aS != null && !aS.isPlaying){
-                    aS.Play();
-                    delay = (int)aS.clip.length;
+                if (_audioSource != null && !_audioSource.IsPlaying()){
+                    _audioSource.Play();
                 }
-                Destroy(gameObject, delay);
+                Murder();
                 break;
         }
+    }
+    private void Death(){
+         Destroy(gameObject);
+    }
+    private void Murder(){
+        GameManager.Instance.CatEdged();
+        Destroy(gameObject);
     }
 }

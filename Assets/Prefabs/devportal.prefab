@@ -48,7 +48,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.71
-  m_Color: {r: 0, g: 0.6907215, b: 1, a: 1}
+  m_Color: {r: 0.1641509, g: 0.7495556, b: 1, a: 1}
   m_Intensity: 30
   m_LightVolumeIntensity: 0.04
   m_LightVolumeIntensityEnabled: 0
@@ -180,6 +180,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b2067a096359242b1b80c92c89e82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 5
   catPrefab: {fileID: 8397238868902202765, guid: cb98ddca2fef7194196cefbff3399da3, type: 3}
   darkCatPrefab: {fileID: 3176973176229582748, guid: ae9eb37a56abee74c914060b2916e790, type: 3}
