@@ -57,6 +57,12 @@ MonoBehaviour:
   _gameUiScene:
     asset: {fileID: 102900000, guid: 47ae175985b59304eac973fdb302eb72, type: 3}
     guid: 47ae175985b59304eac973fdb302eb72
+  _mainMenuScene:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
+  _endCutscene:
+    asset: {fileID: 0}
+    guid: 00000000000000000000000000000000
 --- !u!114 &2284939687356166053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +152,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4602710074687821465}
     m_Modifications:
+    - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
+      propertyPath: _terrainMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 5186443415240305699, guid: 0f51ec98f7407344dbd552f9399c1347, type: 3}
       propertyPath: _summonPrefabs.Array.data[2]
       value: 

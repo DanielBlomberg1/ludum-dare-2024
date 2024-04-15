@@ -11,8 +11,13 @@ public class ItemSummoner : Singleton<ItemSummoner>
     [field: SerializeField]
     public List<SummonItemSettings> SummonItemSettings { get; private set; } = new List<SummonItemSettings>();
 
+    [SerializeField]
+    private LayerMask _terrainMask; 
+
     private SummonItemSettings _selectedSummon = null;
     private GameObject _previewObject = null;
+    private BoxCollider2D _previewCollider = null;
+    private SpriteRenderer _previewSpriteRenderer = null;
 
     private void Update()
     {
@@ -23,6 +28,17 @@ public class ItemSummoner : Singleton<ItemSummoner>
             var mousePosition = GetMouseWordPosition();
 
             _previewObject.transform.position =  mousePosition;
+
+            bool canPlace = CanPlaceSummon();
+
+            if (canPlace)
+            {
+                SetPreviewColor(Color.green);
+            }
+            else
+            {
+                SetPreviewColor(Color.red);
+            }
         }
     }
 
@@ -102,13 +118,20 @@ public class ItemSummoner : Singleton<ItemSummoner>
     private void CreatePreview(SummonItemSettings itemSettings)
     {
         var previewObject = new GameObject();
-        var spriteComponent = previewObject.AddComponent<SpriteRenderer>();
-        spriteComponent.sprite = itemSettings.PreviewSprite;
-        spriteComponent.color = new Color(Color.green.r, Color.green.g, Color.green.b, 0.4f);
-        var collider = previewObject.AddComponent<BoxCollider2D>();
-        collider.isTrigger = true;
+        _previewSpriteRenderer = previewObject.AddComponent<SpriteRenderer>();
+        _previewSpriteRenderer.sprite = itemSettings.PreviewSprite;
+        _previewSpriteRenderer.sortingOrder = 100;
+        SetPreviewColor(Color.green);
+        _previewCollider = previewObject.AddComponent<BoxCollider2D>();
+        _previewCollider.isTrigger = true;
+        _previewCollider.size = new Vector2(0.8f, 0.8f);
 
         _previewObject = previewObject;
+    }
+
+    private void SetPreviewColor(Color color)
+    {
+        _previewSpriteRenderer.color = new Color(color.r, color.g, color.b, 0.55f);
     }
 
     private void ClearPreview()
@@ -120,9 +143,25 @@ public class ItemSummoner : Singleton<ItemSummoner>
         }
     }
 
+    private bool CanPlaceSummon()
+    {
+        var terrainCheckbounds = _previewCollider.bounds;
+
+        bool _isHittingTerrain =
+            Physics2D.OverlapAreaAll(
+                terrainCheckbounds.min,
+                terrainCheckbounds.max,
+                _terrainMask
+            ).Length > 0;
+
+        return !_isHittingTerrain;
+    }
+
     private void PlaceSelectedSummon()
     {
-        if (_selectedSummon == null || InventoryManager.Instance.CanUseItem(_selectedSummon.SummonItemLabel) == false)
+        if (_selectedSummon == null 
+            || InventoryManager.Instance.CanUseItem(_selectedSummon.SummonItemLabel) == false
+            || CanPlaceSummon() == false)
         {
             return;
         }
