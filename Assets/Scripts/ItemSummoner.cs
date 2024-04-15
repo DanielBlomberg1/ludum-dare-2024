@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemSummoner : Singleton<ItemSummoner>
 {
+    public static event Action<SummonItem?> OnSummonSelectChange;
+
     [field: SerializeField]
     public List<SummonItemSettings> SummonItemSettings { get; private set; } = new List<SummonItemSettings>();
 
@@ -80,12 +83,14 @@ public class ItemSummoner : Singleton<ItemSummoner>
         _selectedSummon = SummonItemSettings.FirstOrDefault(itemSettings => itemSettings.SummonItemLabel == item);
 
         CreatePreview(_selectedSummon);
+        OnSummonSelectChange?.Invoke(item);
     }
 
     public void UnselectToBeSummoned()
     {
         _selectedSummon = null;
         ClearPreview();
+        OnSummonSelectChange?.Invoke(null);
     }
 
     private SummonItem GetItemLabelWithKey(KeyCode keyCode)
