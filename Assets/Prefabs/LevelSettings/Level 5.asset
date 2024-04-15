@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Level 5
   m_EditorClassIdentifier: 
   <LevelScene>k__BackingField: {fileID: 102900000, guid: 3b2c818803337634fa39355456fbbf60, type: 3}
-  <BridgeAmount>k__BackingField: 52
-  <DrillAmount>k__BackingField: 24
+  <BridgeAmount>k__BackingField: 0
+  <DrillAmount>k__BackingField: 2
   <PickaxeAmount>k__BackingField: 1
   <SpringAmount>k__BackingField: 2
   <WaterAmount>k__BackingField: 0
   <CatAmount>k__BackingField: 10
   <spawnDelay>k__BackingField: 5
+  <CatSpeed>k__BackingField: 1.5
   <isDark>k__BackingField: 1

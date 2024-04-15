@@ -63,6 +63,13 @@ public class GameManager : Singleton<GameManager>
 
     private void LoadLevel(int levelIndex)
     {
+        catsGooned = 0;
+        
+        if(levelIndex >= Levels.Count)
+        {
+            SceneManager.LoadScene("EndCutScene");
+        }
+
         var levelToLoadSettings = Levels[levelIndex];
 
         LoadScene(levelToLoadSettings.LevelScene);

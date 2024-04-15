@@ -15,9 +15,10 @@ MonoBehaviour:
   <LevelScene>k__BackingField: {fileID: 102900000, guid: 4e3b3cf1e83c5b541a1ebd26b5335a04, type: 3}
   <BridgeAmount>k__BackingField: 0
   <DrillAmount>k__BackingField: 0
-  <PickaxeAmount>k__BackingField: 1
+  <PickaxeAmount>k__BackingField: 2
   <SpringAmount>k__BackingField: 2
   <WaterAmount>k__BackingField: 0
   <CatAmount>k__BackingField: 5
   <spawnDelay>k__BackingField: 10
+  <CatSpeed>k__BackingField: 1.5
   <isDark>k__BackingField: 0
