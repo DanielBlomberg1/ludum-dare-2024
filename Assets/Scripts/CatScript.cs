@@ -24,7 +24,10 @@ public class CatScript : MonoBehaviour
     {
         if(GameManager.Instance && GameManager.Instance.CurrentState != GameState.Play) return;
         
-        if(prevPos == transform.position) catSpeed = -catSpeed; gameObject.transform.localScale = new Vector3(catSpeed, 1, 1);
+        if(prevPos == transform.position){
+            catSpeed = -catSpeed; 
+            gameObject.transform.localScale = new Vector3(-gameObject.transform.localScale.x, 1, 1);
+        } 
   
         rb.velocity = new Vector2(catSpeed, rb.velocity.y);
 
