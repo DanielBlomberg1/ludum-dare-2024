@@ -60,3 +60,6 @@
 *.prefab linguist-generated
 *.unity linguist-generated
 *.aar filter=lfs diff=lfs merge=lfs -text
+
+# Mac libs line endings
+*.bundle text eol=lf
