@@ -36,7 +36,7 @@ public class AnimationScript : MonoBehaviour
             
             // move cat towards its position but the x position is 0
             // cat is an ui object with a rect trsnform
-            cat.transform.position = Vector3.MoveTowards(cat.transform.position, new Vector3(Screen.width/2, cat.transform.position.y, cat.transform.position.z), 0.15f);
+            cat.transform.position = Vector3.MoveTowards(cat.transform.position, new Vector3(Screen.width/2, cat.transform.position.y, cat.transform.position.z), 0.2f);
             
             if (cat.transform.position.x == Screen.width / 2)
             {

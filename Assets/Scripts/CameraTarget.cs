@@ -22,6 +22,8 @@ public class CameraTarget : MonoBehaviour
             if (CameraBounds.Instance)
             {
                 _bounds = CameraBounds.Instance;
+
+                transform.position = new Vector3(0, 0, -1);
             }
 
             else
