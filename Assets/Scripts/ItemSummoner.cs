@@ -131,7 +131,7 @@ public class ItemSummoner : Singleton<ItemSummoner>
 
     private void SetPreviewColor(Color color)
     {
-        _previewSpriteRenderer.color = new Color(color.r, color.g, color.b, 0.55f);
+        _previewSpriteRenderer.color = new Color(color.r, color.g, color.b, 0.8f);
     }
 
     private void ClearPreview()

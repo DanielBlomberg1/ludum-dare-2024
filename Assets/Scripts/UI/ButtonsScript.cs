@@ -7,7 +7,7 @@ public class ButtonsScript : MonoBehaviour
     
     void Start()
     {
-        volumeSlider.GetComponent<UnityEngine.UI.Slider>().value = GameManager.Instance.GetVolume();
+        if (volumeSlider) volumeSlider.GetComponent<UnityEngine.UI.Slider>().value = GameManager.Instance.GetVolume();
     }
     public void Play()
     {
