@@ -30,6 +30,12 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private SceneReference _gameUiScene;
 
+    [SerializeField]
+    private SceneReference _mainMenuScene;
+
+    [SerializeField]
+    private SceneReference _endCutscene;
+
     private StudioEventEmitter _music;
 
     private FMOD.Studio.Bus Master;
@@ -44,8 +50,15 @@ public class GameManager : Singleton<GameManager>
         _music = GetComponent<StudioEventEmitter>();
         
         Master = FMODUnity.RuntimeManager.GetBus("bus:/");
-        
-        UpdateGameState(GameState.MainMenu);
+
+        if (Application.isEditor)
+        {
+            LoadLevel(_currentLevel);
+        }
+        else
+        {
+            UpdateGameState(GameState.MainMenu);
+        }
     }
 
     public void UpdateGameState(GameState newState)
@@ -55,6 +68,7 @@ public class GameManager : Singleton<GameManager>
         switch (newState)
         {
             case GameState.MainMenu:
+                LoadMainMenu();
                 break;
             case GameState.Play:
                 Time.timeScale = 1f;
@@ -88,7 +102,7 @@ public class GameManager : Singleton<GameManager>
         
         if(levelIndex >= Levels.Count)
         {
-            SceneManager.LoadScene("EndCutScene");
+            SceneManager.LoadScene(_endCutscene.Name);
         }
         
         _music.SetParameter("Scene", levelIndex + 1);
@@ -111,7 +125,7 @@ public class GameManager : Singleton<GameManager>
     {
         _music.SetParameter("Scene", 0);
         
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(_mainMenuScene.Name);
     }
 
     private void LoadUI()
