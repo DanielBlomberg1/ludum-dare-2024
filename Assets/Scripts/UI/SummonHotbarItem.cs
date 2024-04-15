@@ -21,6 +21,9 @@ public class SummonHotbarItem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _amountText;
 
+    [SerializeField]
+    private GameObject _disabledOverlay;
+
     private SummonItemSettings _summonItemSettings;
 
     private void Awake()
@@ -51,7 +54,20 @@ public class SummonHotbarItem : MonoBehaviour
 
     private void UpdateAmount()
     {
-        _amountText.text = InventoryManager.Instance.GetItemAmount(_summonItemSettings.SummonItemLabel).ToString();
+        var amount = InventoryManager.Instance.GetItemAmount(_summonItemSettings.SummonItemLabel);
+        _amountText.text = amount.ToString();
+        _hotkeyText.color = new Color(_hotkeyText.color.r, _hotkeyText.color.g, _hotkeyText.color.b, amount > 0 ? 1f : 0.5f);
+
+        if (amount == 0)
+        {
+            _button.enabled = false;
+            _disabledOverlay.SetActive(true);
+        }
+        else
+        {
+            _button.enabled = true;
+            _disabledOverlay.SetActive(false);
+        }
     }
 
     private void HandleSummonSelectChange(SummonItem? item)
